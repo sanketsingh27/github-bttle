@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import RepoProfile from "../component/RepoProfile";
 
 export default function Popular() {
   const [repos, setRepos] = useState([]);
@@ -15,8 +16,29 @@ export default function Popular() {
     fetchRepos();
   }, []);
 
-  const repoList = repos.map((repo) => {
-    return <li key={repo.id}>{repo.name}</li>;
+  const repoList = repos.map((repo, index) => {
+    //   deconstruct
+    const {
+      svn_url: repoUrl,
+      homepage,
+      stargazers_count: star,
+      forks_count: fork,
+      open_issues: issue,
+      owner: { avatar_url: imgUrl },
+    } = repo;
+
+    return (
+      // passing props to components
+      <RepoProfile
+        headerValue={index + 1}
+        imgUrl={imgUrl}
+        repoUrl={repoUrl}
+        homepage={homepage}
+        star={star}
+        fork={fork}
+        issue={issue}
+      />
+    );
   });
 
   return (

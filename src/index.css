@@ -30,3 +30,14 @@ code {
   margin: 20px;
   border-radius: 5px;
 }
+
+.repo-card {
+  width: 200px;
+  height: 300px;
+  background: lightcyan;
+  border: 2px solid lightgrey;
+}
+
+.repo-card > img {
+  width: 100px;
+}
