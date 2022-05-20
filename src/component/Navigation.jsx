@@ -5,13 +5,15 @@ export default function Navigation() {
   const linkArr = ["/", "battle"];
   return (
     <>
-      {linkArr.map((item, index) => {
-        return (
-          <Link key={index} to={item}>
-            {item === "/" ? "popular" : item}
-          </Link>
-        );
-      })}
+      <div className="navigation-bar">
+        {linkArr.map((item, index) => {
+          return (
+            <Link className="nav-item" key={index} to={item}>
+              {item === "/" ? "popular" : item}
+            </Link>
+          );
+        })}
+      </div>
     </>
   );
 }
