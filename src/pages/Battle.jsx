@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Battle() {
   const [player1, setPlayer1] = useState("");
@@ -6,6 +7,8 @@ export default function Battle() {
 
   const [player1ImgUrl, setPlayer1ImgUrl] = useState("");
   const [player2ImgUrl, setPlayer2ImgUrl] = useState("");
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -36,6 +39,12 @@ export default function Battle() {
           </button>
         </div>
       </div>
+
+      {/* <button onClick={() => navigate(`result?p1=${player1}&p2=${player2}`)}>Let's Battle</button> */}
+
+      <Link className="battle-btn" to={`result?p1=${player1}&p2=${player2}`}>
+        Battle Link
+      </Link>
     </>
   );
 }
