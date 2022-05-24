@@ -44,7 +44,17 @@ export default function Popular() {
   return (
     <>
       <h1>Popular</h1>
-      {repoList.length > 0 ? repoList : "Loading...."}
+
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "20px",
+          justifyContent: "center",
+        }}
+      >
+        {repoList.length > 0 ? repoList : "Loading...."}
+      </div>
     </>
   );
 }
